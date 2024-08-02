@@ -1,0 +1,7 @@
+.DS_Store
+*BAK*
+*OLD*
+my-timer*
+WorkerTimer*
+
+node_modules

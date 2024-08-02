@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "my-forest-pomodoro-chrome-ext",
+  "scripts": {
+    "fix": "semistandard --fix",
+    "test": "semistandard"
+  },
+  "devDependencies": {
+    "semistandard": "^17.0.0"
+  },
+  "semistandard": {
+    "globals": [ "chrome" ]
+  }
+}

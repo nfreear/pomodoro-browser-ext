@@ -1,0 +1,32 @@
+{
+  "name": "My Pomodoro",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "My description ...",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webNavigation"
+  ],
+
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+
+  "background": {
+      "service_worker": "service-worker.js",
+      "type": "module"
+  },
+
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Action Button"
+  },
+
+  "content_scripts": [],
+
+  "web_accessible_resources": []
+}
