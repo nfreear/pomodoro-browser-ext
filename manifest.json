@@ -26,7 +26,12 @@
     "default_title": "Action Button"
   },
 
-  "content_scripts": [],
+  "content_scripts": [
+    {
+      "matches": [ "https://*/*" ],
+      "css": [ "assets/content-style.css" ]
+    }
+  ],
 
-  "web_accessible_resources": []
+  "web_accessible_resources": [ ]
 }

@@ -8,14 +8,14 @@ class DialogTimer {
   get _template () {
     return `
   <template>
-  <dialog>
-    <h1> My Timer </h1>
+  <dialog part="dialog">
+    <h1 part="hdg"> My Pomodoro </h1>
     <p>
-      <output id="my-timer"></output>
+      <output id="my-timer" part="output"></output>
     </p>
     <form method="dialog">
       <p>
-        <button id="stop-button">Stop</button>
+        <button id="stop-button" part="button">Stop</button>
       </p>
     </form>
   </dialog>
@@ -23,7 +23,11 @@ class DialogTimer {
   `;
   }
 
-  // constructor () {}
+  get _runtime () { return chrome.runtime; }
+
+  /* async _addStylesheet () {
+    await chrome.scripting.insertCSS({ files: [ 'style.css' ]});
+  } */
 
   createShowElement () {
     const ELEM = this._element = document.createElement('my-pomodoro-timer');
@@ -46,11 +50,11 @@ class DialogTimer {
   }
 
   getStatus () {
-    chrome.runtime.sendMessage({ type: 'timer:getStatus' });
+    this._runtime.sendMessage({ type: 'timer:getStatus' });
   }
 
   listen () {
-    const PORT = chrome.runtime.connect({ name: 'MyTimer' });
+    const PORT = this._runtime.connect({ name: 'MyTimer' });
 
     PORT.onMessage.addListener((msg) => {
     // WAS: chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
@@ -72,7 +76,7 @@ class DialogTimer {
       }
     });
 
-    console.debug('listen:', PORT, chrome.runtime);
+    console.debug('listen:', PORT, this._runtime);
   }
 
   _attachLocalTemplate (elem, templateHtml, attachShadow = true) {

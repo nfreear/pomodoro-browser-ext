@@ -1,0 +1,23 @@
+
+body {
+  X-border: 3px solid red;
+}
+
+my-pomodoro-timer::part(dialog) {
+  color: #222;
+  min-width: 16rem;
+  text-align: center;
+}
+
+my-pomodoro-timer::part(hdg) {
+  font-weight: normal;
+}
+
+my-pomodoro-timer::part(output) {
+  font-size: x-large;
+}
+
+my-pomodoro-timer::part(button) {
+  font-size: inherit;
+  padding: .8rem 1.6rem;
+}

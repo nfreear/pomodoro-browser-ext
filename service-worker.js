@@ -26,6 +26,11 @@ chrome.webNavigation.onDOMContentLoaded.addListener(async ({ tabId, url }) => {
       target: { tabId },
       files: ['content-script.js']
     });
+
+    chrome.scripting.insertCSS({
+      target: { tabId },
+      files: ['assets/content-style.css']
+    });
   }
 });
 
@@ -40,45 +45,24 @@ class WorkerTimer {
     this._value = null;
   }
 
-  initialize () {
-    chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => this._onMessage(msg));
+  get _runtime () { return chrome.runtime; }
 
-    chrome.runtime.onConnect.addListener((port) => {
+  initialize () {
+    this._runtime.onMessage.addListener((msg, sender, sendResponse) => this._onMessage(msg));
+
+    this._runtime.onConnect.addListener((port) => {
       console.debug('sw.js -', 'onConnect:', port);
       console.assert(port.name === 'MyTimer');
 
-      port.onDisconnect.addEventListener((port) => {
+      /* port.onDisconnect.addEventListener((port) => {
         console.debug('sw.js -', 'onDisconnect:', port);
         console.assert(port.name === 'MyTimer');
 
         this._port = null;
-      });
+      }); */
 
       this._port = port;
     });
-
-    /* chrome.runtime.Port.onDisconnect.addEventListener((port) => {
-      console.debug('sw.js -', 'onDisconnect:', port);
-      console.assert(port.name === 'MyTimer');
-
-      this._port = null;
-    }); */
-
-    // chrome.runtime.onDisconnect
-
-    /* this._port = chrome.runtime.connect({ name: 'MyTimer' });
-
-    this._port.postMessage({ type: 'timer:init' });
-
-    this._port.onMessage.addListener((msg) => this._onMessage(this._port, msg));
-    */
-
-    /* chrome.runtime.onConnect.addListener((port) => {
-      console.assert(port.name === 'MyTimer');
-
-      port.onMessage.addListener((msg) => this._onMessage(port, msg));
-    });
-    */
   }
 
   _onMessage (msg) {
@@ -131,14 +115,13 @@ class WorkerTimer {
     this._intId = null;
 
     this._postMessage({ type: 'timer:stopped', value: '00:00' });
-
     // WAS: chrome.runtime.sendMessage({ type: 'timer:stopped', value: '00:00' });
 
     console.debug('Sending timer:stopped');
   }
 
   _postMessage (data) {
-    chrome.runtime.sendMessage(data);
+    this._runtime.sendMessage(data);
 
     if (this._port) {
       this._port.postMessage(data);
