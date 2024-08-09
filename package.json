@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "my-forest-pomodoro-chrome-ext",
+  "name": "my-pomodoro-chrome-ext",
   "scripts": {
     "fix": "semistandard --fix",
     "test": "semistandard"

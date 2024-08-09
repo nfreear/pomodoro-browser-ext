@@ -8,8 +8,12 @@ class DialogTimer {
   get _template () {
     return `
   <template>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet" />
   <dialog part="dialog">
     <h1 part="hdg"> My Pomodoro </h1>
+    <p>
+      <i class="material-symbols-outlined tree-icon">park</i>
+    </p>
     <p>
       <output id="my-timer" part="output"></output>
     </p>
@@ -25,9 +29,16 @@ class DialogTimer {
 
   get _runtime () { return chrome.runtime; }
 
-  /* async _addStylesheet () {
-    await chrome.scripting.insertCSS({ files: [ 'style.css' ]});
-  } */
+  get _stylesheet () {
+    return `chrome-extension://${this._runtime.id}/assets/content-style.css`;
+  }
+
+  addStylesheet () {
+    const LINK = document.createElement('link');
+    LINK.rel = 'stylesheet';
+    LINK.href = this._stylesheet;
+    this._element.shadowRoot.appendChild(LINK);
+  }
 
   createShowElement () {
     const ELEM = this._element = document.createElement('my-pomodoro-timer');
@@ -46,7 +57,7 @@ class DialogTimer {
       console.debug('Stop!');
     });
 
-    console.debug('content-script.js:', ELEM);
+    console.debug('>> content-script.js:', chrome.runtime.id, ELEM);
   }
 
   getStatus () {
@@ -98,8 +109,29 @@ class DialogTimer {
 const dialogTimer = new DialogTimer();
 
 dialogTimer.createShowElement();
+dialogTimer.addStylesheet();
 dialogTimer.getStatus();
 dialogTimer.listen();
+
+(async () => {
+  const _storage = chrome.storage.local;
+
+  console.debug('HI:', document.location, chrome.runtime);
+
+  // const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
+
+  // Storage test.
+  const { updated } = await _storage.get('updated');
+  const data = await _storage.get('onDOMCLoaded');
+  const { blockList } = await _storage.get('blockList');
+
+  console.debug('Storage ~ get:', updated, blockList, data);
+
+  await _storage.set({ updated: new Date().toISOString() });
+  await _storage.set({ onDOMCLoaded: { location } });
+})();
+
+console.debug('HELO');
 
 /*
 (async () => {

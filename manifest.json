@@ -4,8 +4,13 @@
   "manifest_version": 3,
   "description": "My description ...",
 
+  "icons": {
+    "128": "assets/icon-128.png"
+  },
+
   "permissions": [
     "activeTab",
+    "notifications",
     "scripting",
     "storage",
     "webNavigation"
@@ -17,21 +22,25 @@
   ],
 
   "background": {
-      "service_worker": "service-worker.js",
-      "type": "module"
+      "service_worker": "service-worker.js"
   },
 
   "action": {
     "default_popup": "index.html",
-    "default_title": "Action Button"
+    "default_title": "My Pomodoro"
   },
 
-  "content_scripts": [
+  "options_ui": {
+    "open_in_tab": true,
+    "page": "options/options.html"
+  },
+
+  "content_scripts": [ ],
+
+  "web_accessible_resources": [
     {
       "matches": [ "https://*/*" ],
-      "css": [ "assets/content-style.css" ]
+      "resources": [ "assets/content-style.css" ]
     }
-  ],
-
-  "web_accessible_resources": [ ]
+  ]
 }

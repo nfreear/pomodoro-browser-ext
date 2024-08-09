@@ -4,17 +4,21 @@
   © NDF, 26-July-2024.
 */
 
-const BLOCK_LIST = [
+/* const BLOCK_LIST = [
   'http://localhost:8080/blocked.html',
   'https://example.org'
 ];
 
 const DURATION = 60 * 10; // Was: 60 * 5;
+*/
 
 chrome.webNavigation.onDOMContentLoaded.addListener(async ({ tabId, url }) => {
-  console.debug('chrome.webNav.onDOMCLoaded:', tabId, url);
+  const _storage = chrome.storage.local;
+  const { blockList } = await _storage.get('blockList');
 
-  const isBlocked = BLOCK_LIST.findIndex((pattern) => {
+  console.debug('chrome.webNav.onDOMCLoaded:', blockList, tabId, url);
+
+  const isBlocked = blockList.findIndex((pattern) => {
     const RE = new RegExp(pattern);
     return RE.test(url);
   });
@@ -27,11 +31,21 @@ chrome.webNavigation.onDOMContentLoaded.addListener(async ({ tabId, url }) => {
       files: ['content-script.js']
     });
 
-    chrome.scripting.insertCSS({
+    /* chrome.scripting.insertCSS({
       target: { tabId },
       files: ['assets/content-style.css']
-    });
+    }); */
   }
+
+  // Storage test.
+  const { updated } = await _storage.get('updated');
+  const data = await _storage.get('onDOMCLoaded');
+  // const { blockList } = await _storage.get('blockList');
+
+  console.debug('Storage ~ get:', updated, blockList, data);
+
+  _storage.set({ updated: new Date() });
+  _storage.set({ onDOMCLoaded: { tabId, url } });
 });
 
 // ========================
@@ -40,12 +54,21 @@ class WorkerTimer {
   constructor () {
     this._running = false;
     this._intId = null;
-    this._duration = DURATION;
+    this._duration = null;
     this._timer = null;
     this._value = null;
   }
 
   get _runtime () { return chrome.runtime; }
+  get _storage () { return chrome.storage.local; }
+  get _notifications () { return chrome.notifications; }
+
+
+
+  async _getDurationSeconds () {
+    const { duration } = await this._storage.get('duration');
+    return parseInt(duration || 10) * 60;
+  }
 
   initialize () {
     this._runtime.onMessage.addListener((msg, sender, sendResponse) => this._onMessage(msg));
@@ -65,7 +88,7 @@ class WorkerTimer {
     });
   }
 
-  _onMessage (msg) {
+  async _onMessage (msg) {
     // WAS: chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     if (msg.type === 'timer:getStatus') {
       this._postMessage({ type: 'timer:status', running: this._running, value: this._value });
@@ -75,11 +98,11 @@ class WorkerTimer {
     }
 
     if (msg.type === 'timer:stop' && this._intId) {
-      this._stop();
+      await this._stop();
     }
 
     if (msg.type === 'timer:start' && !this._running) {
-      this._timer = this._duration;
+      this._timer = await this._getDurationSeconds();
 
       this._running = true;
 
@@ -104,11 +127,13 @@ class WorkerTimer {
       },
       1000);
 
+      await this._createNotification('Timer started!');
+
       console.debug('timer:start');
     } // IF.
   }
 
-  _stop () {
+  async _stop () {
     clearInterval(this._intId);
 
     this._running = false;
@@ -116,6 +141,8 @@ class WorkerTimer {
 
     this._postMessage({ type: 'timer:stopped', value: '00:00' });
     // WAS: chrome.runtime.sendMessage({ type: 'timer:stopped', value: '00:00' });
+
+    await this._createNotification('Timer stopped!');
 
     console.debug('Sending timer:stopped');
   }
@@ -127,10 +154,21 @@ class WorkerTimer {
       this._port.postMessage(data);
     }
   }
+
+  async _createNotification (message) {
+    return await this._notifications.create('my-pomodoro-timer', {
+      type: 'basic',
+      iconUrl: this._runtime.getURL('assets/icon-128.png'),
+      title: 'My Pomodoro',
+      message,
+    });
+  }
 }
 
 const workerTimer = new WorkerTimer();
 
 workerTimer.initialize();
+
+console.debug('>>service-worker.js');
 
 // End.

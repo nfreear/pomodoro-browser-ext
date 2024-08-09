@@ -1,0 +1,36 @@
+
+body {
+  background: gray;
+  border-radius: 1rem;
+  font-size: 1rem;
+  min-height: 10rem;
+  min-width: 18rem;
+  padding: .1rem;
+  text-align: center;
+}
+
+body > div {
+  background: #f8fff8;
+  border-radius: .8rem;
+  color: teal;
+  padding: .5rem;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+output {
+  font-size: x-large;
+}
+
+button {
+  font-size: inherit;
+  padding: .8rem 1.6rem;
+}
+
+.tree-icon {
+  color: green;
+  font-size: 5rem;
+  font-variation-settings: 'FILL' 1;
+}

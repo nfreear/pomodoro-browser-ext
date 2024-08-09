@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <style>
+  body {
+    background: #f8fff8;
+    color: teal;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: auto;
+    min-height: 22rem;
+    max-width: 33rem;
+    padding: 0 1rem;
+  }
+
+  h1, h2 { font-weight: normal; }
+
+  output {
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: .2rem;
+    display: block;
+    min-height: 2rem;
+    white-space: pre;
+  }
+
+  button,
+  input,
+  output {
+    font-size: inherit;
+    padding: .4rem 1rem;
+  }
+  </style>
+
+
+  <title> Options &ndash; My Pomodoro </title>
+
+  <h1> Options &ndash; My Pomodoro </h1>
+
+  <h2> Duration </h2>
+
+  <form id="durationForm">
+    <p>
+      <label>Timer duration <input name="duration" type="number" value="10" min="5" step="5" max="40"> minutes</label>
+    </p>
+  </form>
+
+  <h2> Block list </h2>
+
+  <form id="blockListForm">
+    <p id="addUrl">
+      <label>URL <input name="url" type="url" required value="https://example.org"></label>
+      <button type="submit">Add URL</button>
+    </p>
+
+    <p>
+      <label>URLs
+        <output name="output"></output>
+      </label>
+    </p>
+  </form>
+
+  <script src="options.js"></script>
+
+</html>
