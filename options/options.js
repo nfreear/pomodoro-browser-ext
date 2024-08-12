@@ -1,9 +1,12 @@
 /*!
+  Options page.
 
   © NDF, 08-August-2024.
 */
 
-const _storage = chrome.storage.local;
+const BROWSER = globalThis.browser || globalThis.chrome;
+
+const _storage = BROWSER.storage.local;
 const blockListForm = document.querySelector('#blockListForm');
 const durationForm = document.querySelector('#durationForm');
 
@@ -46,4 +49,4 @@ function isArray (somevar) {
   return somevar.constructor.name === 'Array';
 }
 
-console.debug('options.js');
+console.debug('>> options.js');

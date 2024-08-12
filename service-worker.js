@@ -4,16 +4,10 @@
   © NDF, 26-July-2024.
 */
 
-/* const BLOCK_LIST = [
-  'http://localhost:8080/blocked.html',
-  'https://example.org'
-];
+const BROWSER = globalThis.browser || globalThis.chrome;
 
-const DURATION = 60 * 10; // Was: 60 * 5;
-*/
-
-chrome.webNavigation.onDOMContentLoaded.addListener(async ({ tabId, url }) => {
-  const _storage = chrome.storage.local;
+BROWSER.webNavigation.onDOMContentLoaded.addListener(async ({ tabId, url }) => {
+  const _storage = BROWSER.storage.local;
   const { blockList } = await _storage.get('blockList');
 
   console.debug('chrome.webNav.onDOMCLoaded:', blockList, tabId, url);
@@ -26,7 +20,7 @@ chrome.webNavigation.onDOMContentLoaded.addListener(async ({ tabId, url }) => {
   console.log('Is blocked?', tabId, url, isBlocked);
 
   if (isBlocked !== -1) {
-    chrome.scripting.executeScript({
+    BROWSER.scripting.executeScript({
       target: { tabId },
       files: ['content-script.js']
     });
@@ -59,11 +53,11 @@ class WorkerTimer {
     this._value = null;
   }
 
-  get _runtime () { return chrome.runtime; }
-  get _storage () { return chrome.storage.local; }
-  get _notifications () { return chrome.notifications; }
+  get _browser () { return globalThis.browser || globalThis.chrome; }
 
-
+  get _runtime () { return this._browser.runtime; }
+  get _storage () { return this._browser.storage.local; }
+  get _notifications () { return this._browser.notifications; }
 
   async _getDurationSeconds () {
     const { duration } = await this._storage.get('duration');
@@ -160,7 +154,7 @@ class WorkerTimer {
       type: 'basic',
       iconUrl: this._runtime.getURL('assets/icon-128.png'),
       title: 'My Pomodoro',
-      message,
+      message
     });
   }
 }

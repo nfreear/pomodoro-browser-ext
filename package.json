@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "my-pomodoro-chrome-ext",
+  "name": "my-pomodoro-browser-ext",
   "scripts": {
     "fix": "semistandard --fix",
     "test": "semistandard"
@@ -10,6 +10,6 @@
   },
   "semistandard": {
     "env": [ "browser" ],
-    "globals": [ "chrome" ]
+    "globals": [ "X_chrome" ]
   }
 }

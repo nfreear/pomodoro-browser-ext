@@ -10,7 +10,8 @@ class TimerDisplay {
     this._timer = ROOT.querySelector('#my-timer');
   }
 
-  get _runtime () { return chrome.runtime; }
+  get _browser () { return globalThis.browser || globalThis.chrome; }
+  get _runtime () { return this._browser.runtime; }
 
   connect () {
     this._runtime.onMessage.addListener((msg, sender, sendResponse) => this._onMessage(msg));

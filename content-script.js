@@ -27,7 +27,8 @@ class DialogTimer {
   `;
   }
 
-  get _runtime () { return chrome.runtime; }
+  get _browser () { return globalThis.browser || globalThis.chrome; }
+  get _runtime () { return this._browser.runtime; }
 
   get _stylesheet () {
     return `chrome-extension://${this._runtime.id}/assets/content-style.css`;
@@ -57,7 +58,7 @@ class DialogTimer {
       console.debug('Stop!');
     });
 
-    console.debug('>> content-script.js:', chrome.runtime.id, ELEM);
+    console.debug('DialogTimer:', this._runtime.id, ELEM);
   }
 
   getStatus () {
@@ -114,9 +115,10 @@ dialogTimer.getStatus();
 dialogTimer.listen();
 
 (async () => {
-  const _storage = chrome.storage.local;
+  const BROWSER = globalThis.browser || globalThis.chrome;
+  const _storage = BROWSER.storage.local;
 
-  console.debug('HI:', document.location, chrome.runtime);
+  console.debug('HI:', document.location, BROWSER.runtime);
 
   // const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
 
@@ -131,7 +133,7 @@ dialogTimer.listen();
   await _storage.set({ onDOMCLoaded: { location } });
 })();
 
-console.debug('HELO');
+console.debug('>> content-script.js');
 
 /*
 (async () => {
