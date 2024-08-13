@@ -22,11 +22,11 @@
   ],
 
   "background": {
-      "service_worker": "service-worker.js"
+      "service_worker": "lib/service-worker.js"
   },
 
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "pages/index.html",
     "default_title": "My Pomodoro"
   },
 

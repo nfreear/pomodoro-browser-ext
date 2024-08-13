@@ -27,5 +27,17 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - name: Package the extension
+      uses: montudor/action-zip@v1
+      with:
+        zip -r extension.zip manifest.json assets lib options pages
+        # args: zip -qq -r dir.zip dir
+    - uses: actions/upload-artifact@v4
+      with:
+        name: extension.zip
+        path: extension.zip
+        compression-level: 1 # low compression (range: 0...9)
+        if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+        # retention-days: 90
 
 # End.
