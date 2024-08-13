@@ -30,7 +30,7 @@ jobs:
     - name: Package the extension
       uses: montudor/action-zip@v1
       with:
-        zip -r extension.zip manifest.json assets lib options pages
+        args: zip -r extension.zip manifest.json assets lib options pages
         # args: zip -qq -r dir.zip dir
     - uses: actions/upload-artifact@v4
       with:
