@@ -2,20 +2,20 @@
 <html lang="en">
   <style>
   body {
-    background: #f8fff8;
-    color: teal;
+    background: #f7fff7;
+    color: #006060; /* teal, #008080 */
     font-size: 1rem;
     line-height: 1.6;
     margin: auto;
     min-height: 22rem;
-    max-width: 33rem;
+    max-width: 32rem;
     padding: 0 1rem;
   }
 
   h1, h2 { font-weight: normal; }
 
   output {
-    background: #fff;
+    background-color: #fcfcfc;
     border: 1px solid #bbb;
     border-radius: .2rem;
     display: block;
@@ -40,7 +40,7 @@
 
   <form id="durationForm">
     <p>
-      <label>Timer duration <input name="duration" type="number" value="10" min="5" step="5" max="40"> minutes</label>
+      <label>Timer duration <input name="duration" type="number" value="10" min="5" step="5" max="45"> minutes</label>
     </p>
   </form>
 
@@ -51,11 +51,13 @@
       <label>URL <input name="url" type="url" required value="https://example.org"></label>
       <button type="submit">Add URL</button>
     </p>
-
     <p>
       <label>URLs
-        <output name="output"></output>
+        <output name="list"></output>
       </label>
+    </p>
+    <p>
+      <button type="reset">Remove all URLs</button>
     </p>
   </form>
 

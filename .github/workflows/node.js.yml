@@ -10,6 +10,8 @@ on:
 
 jobs:
   test:
+    name: Test & Package
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -34,7 +36,7 @@ jobs:
         # args: zip -qq -r dir.zip dir
     - uses: actions/upload-artifact@v4
       with:
-        name: extension.zip
+        name: extension
         path: extension.zip
         compression-level: 1 # low compression (range: 0...9)
         if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`

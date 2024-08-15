@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "my-pomodoro-browser-ext",
+  "author": "Nick Freear",
   "scripts": {
     "zip": "zip -r extension.zip manifest.json assets lib options pages",
     "fix": "semistandard --fix",

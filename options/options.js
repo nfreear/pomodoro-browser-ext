@@ -14,13 +14,13 @@ blockListForm.addEventListener('submit', async (ev) => {
   ev.preventDefault();
 
   const url = ev.target.elements.url.value;
-  const output = ev.target.elements.output;
+  const listElem = ev.target.elements.list;
 
-  output.value += url + '\n';
+  listElem.value += url + '\n';
 
   const { blockList } = await _storage.get('blockList');
 
-  console.debug('submit:', url, blockList, output, ev);
+  console.debug('submit:', url, blockList, listElem, ev);
 
   if (isArray(blockList)) {
     blockList.push(url);
@@ -30,6 +30,18 @@ blockListForm.addEventListener('submit', async (ev) => {
   } else {
     await _storage.set({ blockList: [url] });
   }
+});
+
+blockListForm.addEventListener('reset', async (ev) => {
+  ev.preventDefault();
+
+  const { blockList } = await _storage.get('blockList');
+
+  console.debug('reset:', blockList, ev.target.elements, ev);
+
+  /* await _storage.set({ blockList: [] });
+  ev.target.elements.list.value = '';
+  */
 });
 
 durationForm.elements.duration.addEventListener('change', async (ev) => {
