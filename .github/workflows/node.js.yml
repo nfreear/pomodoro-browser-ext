@@ -29,16 +29,23 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: Package the extension
-      uses: montudor/action-zip@v1
-      with:
-        args: zip -r extension.zip manifest.json assets lib options pages
+    #- name: Package the extension
+    #  uses: montudor/action-zip@v1
+    #  with:
+    #    args: zip -r extension.zip manifest.json assets lib options pages
         # args: zip -qq -r dir.zip dir
-    - uses: actions/upload-artifact@v4
+    - name: Package and upload extension
+      uses: actions/upload-artifact@v4
       with:
         name: extension
-        path: extension.zip
-        compression-level: 1 # low compression (range: 0...9)
+        # path: extension.zip
+        path: |
+          manifest.json
+          assets/*
+          lib/*
+          options/*
+          pages/*
+        compression-level: 6 # default compression (range: none 0...9 high)
         if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
         # retention-days: 90
 
