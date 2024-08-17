@@ -29,6 +29,10 @@ button {
   padding: .8rem 1.6rem;
 }
 
+img[ src *= evergreen_tree ] {
+  height: 9rem;
+}
+
 .tree-icon {
   color: green;
   font-size: 5rem;

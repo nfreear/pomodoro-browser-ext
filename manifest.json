@@ -41,7 +41,10 @@
   "web_accessible_resources": [
     {
       "matches": [ "https://*/*" ],
-      "resources": [ "assets/content-style.css" ]
+      "resources": [
+        "assets/content-style.css",
+        "assets/evergreen_tree.svg"
+      ]
     }
   ]
 }
