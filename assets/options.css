@@ -1,0 +1,29 @@
+
+body {
+  background: #f7fff7;
+  color: #006060; /* teal, #008080 */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: auto;
+  min-height: 22rem;
+  max-width: 32rem;
+  padding: 0 1rem;
+}
+
+h1, h2 { font-weight: normal; }
+
+output {
+  background-color: #fcfcfc;
+  border: 1px solid #bbb;
+  border-radius: .2rem;
+  display: block;
+  min-height: 2rem;
+  white-space: pre;
+}
+
+button,
+input,
+output {
+  font-size: inherit;
+  padding: .4rem 1rem;
+}
