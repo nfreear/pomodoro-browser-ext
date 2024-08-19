@@ -4,10 +4,20 @@
   © NDF, 08-August-2024.
 */
 
+const DURATION = {
+  default: 10,
+  min: 5,
+  max: 60,
+  step: 5
+};
+
 class OptionsStorage {
-  constructor () {
+  attachDOM () {
     this._blockListForm = document.querySelector('#blockListForm');
     this._durationForm = document.querySelector('#durationForm');
+
+    console.assert(this._blockListForm);
+    console.assert(this._durationForm);
   }
 
   get _browser () { return globalThis.browser || globalThis.chrome; }
@@ -24,10 +34,12 @@ class OptionsStorage {
   }
 
   async fromStorage () {
+    console.assert(this._storage);
+
     const { blockList, duration } = await this._storage.get();
 
     this._blockListElem.value = blockList.join('\n');
-    this._durationElem.value = duration;
+    this._durationElem.value = parseInt(duration || DURATION.default);
 
     console.debug('OptionsStorage ~ duration, blockList:', duration, blockList);
   }
@@ -61,18 +73,21 @@ class OptionsStorage {
 
     const { blockList } = await this._storage.get('blockList');
 
-    await this._storage.set({ blockList: [] });
+    // Re-create pre-install state?
+    await this._storage.set({ blockList: null });
     await this.fromStorage();
-
-    // ev.target.elements.list.value = '';
 
     console.debug('OS ~ reset:', blockList, ev.target.elements, ev);
   }
 
   async _durationChangeHandler (ev) {
-    await this._storage.set({ duration: ev.target.value });
+    const duration = parseInt(ev.target.value);
+    console.assert(duration >= DURATION.min);
+    console.assert(duration <= DURATION.max);
 
-    console.debug('OS ~ duration change:', ev.target.value, ev);
+    await this._storage.set({ duration });
+
+    console.debug('OS ~ duration change:', duration, ev);
   }
 
   _isArray (somevar) {
@@ -82,6 +97,7 @@ class OptionsStorage {
 
 const optionsStorage = new OptionsStorage();
 
+optionsStorage.attachDOM();
 optionsStorage.handleUserEvents();
 optionsStorage.fromStorage();
 
