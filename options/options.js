@@ -38,7 +38,7 @@ class OptionsStorage {
 
     const { blockList, duration } = await this._storage.get();
 
-    this._blockListElem.value = blockList.join('\n');
+    this._blockListElem.value = (blockList || []).join('\n');
     this._durationElem.value = parseInt(duration || DURATION.default);
 
     console.debug('OptionsStorage ~ duration, blockList:', duration, blockList);
