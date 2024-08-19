@@ -56,7 +56,7 @@ class OptionsStorage {
 
     console.debug('OS ~ submit:', url, blockList, listElem, ev);
 
-    if (this._isArray(blockList)) {
+    if (blockList && this._isArray(blockList)) {
       blockList.push(url);
 
       await this._storage.set({ blockList }); // , () => console.debug('storage ~ set:', blockList));
