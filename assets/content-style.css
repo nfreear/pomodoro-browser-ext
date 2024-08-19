@@ -3,15 +3,16 @@ body {
   X-border: 3px solid red;
 }
 
-dialog,
-X__my-pomodoro-timer::part(dialog) {
+dialog {
   X-background: #f8fff8;
   background: rgba(250, 255, 250, .9);
   border: .7rem solid #999;
   border-radius: 1rem;
   color: #006060; /* teal, #008080 */
+  font: 1rem/1.6 sans-serif;
   min-height: 17rem;
   min-width: 21rem;
+  max-width: 100vw;
   text-align: center;
 }
 
@@ -21,18 +22,15 @@ my-pomodoro-timer::part(dialog)::backdrop */ {
   X-opacity: .1rem;
 }
 
-h1,
-X__my-pomodoro-timer::part(hdg) {
+h1 {
   font-weight: normal;
 }
 
-output,
-X__my-pomodoro-timer::part(output) {
+output {
   font-size: x-large;
 }
 
-button,
-X__my-pomodoro-timer::part(button) {
+button {
   font-size: inherit;
   padding: .8rem 1.6rem;
 }

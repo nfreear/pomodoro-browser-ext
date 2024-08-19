@@ -2,8 +2,7 @@
 body {
   background: #f7fff7;
   color: #006060; /* teal, #008080 */
-  font-size: 1rem;
-  line-height: 1.6;
+  font: 1rem/1.6 sans-serif;
   margin: auto;
   min-height: 22rem;
   max-width: 32rem;
@@ -26,4 +25,8 @@ input,
 output {
   font-size: inherit;
   padding: .4rem 1rem;
+}
+
+input[ name = url ] {
+  width: 16rem;
 }
