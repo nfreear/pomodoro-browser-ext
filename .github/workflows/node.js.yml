@@ -29,15 +29,16 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: npm run build:chromium
     #- name: Package the extension
     #  uses: montudor/action-zip@v1
     #  with:
     #    args: zip -r extension.zip manifest.json assets lib options pages
         # args: zip -qq -r dir.zip dir
-    - name: Package and upload extension
+    - name: Package & upload extension (Chromium)
       uses: actions/upload-artifact@v4
       with:
-        name: extension
+        name: extension.chromium
         # path: extension.zip
         path: |
           manifest.json
@@ -48,5 +49,21 @@ jobs:
         compression-level: 6 # default compression (range: none 0...9 high)
         if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
         # retention-days: 90
+
+    - run: rm -f manifest.json
+
+    - run: npm run build:gecko
+    - name: Package & upload extension (Gecko)
+      uses: actions/upload-artifact@v4
+      with:
+        name: extension.gecko
+        path: |
+          manifest.json
+          assets/*
+          lib/*
+          options/*
+          pages/*
+        compression-level: 6
+        if-no-files-found: error
 
 # End.

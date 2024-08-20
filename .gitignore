@@ -1,8 +1,12 @@
 .DS_Store
+*.diff
 *BAK*
 *OLD*
 my-timer*
 WorkerTimer*
+# a11y*
+# mod-test.js
 
 *.zip
 node_modules
+manifest*.json

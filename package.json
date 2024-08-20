@@ -3,6 +3,8 @@
   "name": "my-pomodoro-browser-ext",
   "author": "Nick Freear",
   "scripts": {
+    "build:chromium": "UA=chromium node build/manifest.js",
+    "build:gecko": "UA=gecko node build/manifest.js",
     "zip": "zip -r extension.zip manifest.json assets lib options pages",
     "fix": "semistandard --fix",
     "test": "semistandard"
