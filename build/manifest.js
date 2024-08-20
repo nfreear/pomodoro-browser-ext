@@ -12,7 +12,7 @@ console.log('Building manifest - targetting:', process.env.UA);
 
 const IS_GECKO = process.env.UA === 'gecko';
 
-const FILE_PATH = resolve(__dirname, '..', 'manifest.X.json');
+const FILE_PATH = resolve(__dirname, '..', 'manifest.json');
 const SERVICE_WORKER = 'lib/service-worker.js';
 
 const TEMPLATE = {
@@ -56,7 +56,7 @@ const TEMPLATE = {
     page: 'options/options.html'
   },
 
-  content_scripts: [],
+  // content_scripts: [],
 
   web_accessible_resources: [
     {
@@ -89,8 +89,8 @@ if (IS_GECKO) {
 const jsonData = JSON.stringify(MANIFEST, null, 2);
 
 fs.writeFile(FILE_PATH, jsonData)
-  .then(() => console.log('File written OK: manifest.json'))
+  .then(() => console.log('File written OK:', FILE_PATH))
   .catch((err) => {
-    console.error('ERROR: failed to write manifest.json:', err);
+    console.error('ERROR: failed to write:', FILE_PATH, err);
     process.exit(1);
   });
