@@ -12,6 +12,11 @@ const DURATION = {
 };
 
 class OptionsStorage {
+  constructor () {
+    console.assert(this._browser.storage);
+    console.assert(this._browser.storage.local);
+  }
+
   attachDOM () {
     this._blockListForm = document.querySelector('#blockListForm');
     this._durationForm = document.querySelector('#durationForm');

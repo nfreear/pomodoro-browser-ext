@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="en">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="/assets/options.css">
 
   <title> Options &ndash; My Pomodoro </title>
 
   <h1> Options &ndash; My Pomodoro </h1>
 
+  <main>
   <h2> Duration </h2>
 
   <form id="durationForm">
@@ -19,7 +22,7 @@
 
   <form id="blockListForm">
     <p id="addUrl">
-      <label>URL <input name="url" type="url" required value="https://example.org"></label>
+      <label>URL <input name="url" type="url" required placeholder="https://example.org" autocomplete="on"></label>
       <button type="submit">Add URL</button>
     </p>
     <p>
@@ -31,7 +34,9 @@
       <button type="reset">Remove all URLs</button>
     </p>
   </form>
+  </main>
 
+  <footer>
   <nav>
     <p>
       <a href="https://github.com/nfreear/pomodoro-chrome-ext/#readme" target="gh">About</a>
@@ -39,6 +44,7 @@
       <a href="https://github.com/nfreear/pomodoro-chrome-ext/#privacy" target="gh">Privacy</a>
     </p>
   </nav>
+  </footer>
 
   <script src="options.js"></script>
 

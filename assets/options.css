@@ -9,24 +9,51 @@ body {
   padding: 0 1rem;
 }
 
+footer {
+  font-size: 90%;
+  margin-top: 1.6rem;
+}
+
+h1 { font-size: 185%; }
+
 h1, h2 { font-weight: normal; }
 
 output {
   background-color: #fcfcfc;
-  border: 1px solid #bbb;
+  border: 1px solid #aaa;
   border-radius: .2rem;
   display: block;
   min-height: 2rem;
   white-space: pre;
 }
 
-button,
+button {
+  font-size: inherit;
+  padding: .5rem 1rem;
+}
+
 input,
 output {
   font-size: inherit;
-  padding: .4rem 1rem;
+  padding: .5rem .75rem;
 }
 
-input[ name = url ] {
+input[ type = url ] {
   width: 16rem;
+}
+
+@media screen and (max-width: 600px) {
+  input[ type = url ],
+  button {
+    display: block;
+    width: 100%;
+  }
+
+  button {
+    margin: .8rem 0;
+  }
+
+  input[ type = url ] {
+    width: 92%;
+  }
 }
