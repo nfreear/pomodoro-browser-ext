@@ -9,6 +9,12 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  body {
+    min-width: 96vw;
+  }
+}
+
 footer {
   font-size: 90%;
   margin-top: 1.6rem;
