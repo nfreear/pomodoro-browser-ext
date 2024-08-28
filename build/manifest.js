@@ -44,6 +44,7 @@ const TEMPLATE = {
   background: {
     // scripts: ['lib/service-worker.js'],
     // service_worker: 'lib/service-worker.js'
+    type: 'module'
   },
 
   action: {
@@ -83,7 +84,10 @@ const MANIFEST = IS_GECKO ? { ...TEMPLATE, ...GECKO } : TEMPLATE;
 if (IS_GECKO) {
   MANIFEST.background.scripts = [SERVICE_WORKER];
 } else {
+  // Chromium-specific.
   MANIFEST.background.service_worker = SERVICE_WORKER;
+
+  MANIFEST.permissions.push('offscreen');
 }
 
 const jsonData = JSON.stringify(MANIFEST, null, 2);
