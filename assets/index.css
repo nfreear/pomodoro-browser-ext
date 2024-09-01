@@ -10,8 +10,9 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  body {
+  body.not-gecko {
     min-width: 96vw;
+    max-width: 26rem;
   }
 }
 

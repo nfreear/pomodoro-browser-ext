@@ -14,6 +14,10 @@ footer {
   margin-top: 1.6rem;
 }
 
+#userAgent {
+  font-size: 92%;
+}
+
 h1 { font-size: 185%; }
 
 h1, h2 { font-weight: normal; }
@@ -56,4 +60,13 @@ input[ type = url ] {
   input[ type = url ] {
     width: 92%;
   }
+}
+
+#log {
+  line-height: 2;
+}
+
+time[ dt ] {
+  display: inline-block;
+  min-width: 10.8rem;
 }

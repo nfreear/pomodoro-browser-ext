@@ -20,9 +20,12 @@ class OptionsStorage {
   attachDOM () {
     this._blockListForm = document.querySelector('#blockListForm');
     this._durationForm = document.querySelector('#durationForm');
+    this._userAgentElem = document.querySelector('#userAgent');
 
     console.assert(this._blockListForm);
     console.assert(this._durationForm);
+    console.assert(this._userAgentElem);
+    this._userAgentElem.textContent = navigator.userAgent;
   }
 
   get _browser () { return globalThis.browser || globalThis.chrome; }
