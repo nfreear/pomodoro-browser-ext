@@ -4,6 +4,8 @@
   © NDF, 08-August-2024.
 */
 
+import AddonBase from '../lib/AddonBase.js';
+
 const DURATION = {
   default: 10,
   min: 5,
@@ -11,12 +13,7 @@ const DURATION = {
   step: 5
 };
 
-class OptionsStorage {
-  constructor () {
-    console.assert(this._browser.storage);
-    console.assert(this._browser.storage.local);
-  }
-
+class OptionsStorage extends AddonBase {
   attachDOM () {
     this._blockListForm = document.querySelector('#blockListForm');
     this._durationForm = document.querySelector('#durationForm');
