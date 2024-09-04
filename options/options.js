@@ -4,10 +4,10 @@
   © NDF, 08-August-2024.
 */
 
-import AddonBase from '../lib/AddonBase.js';
+import { AddonBase, DEFAULTS } from '../lib/AddonBase.js';
 
 const DURATION = {
-  default: 10,
+  default: DEFAULTS.duration, // new AddonBase()._defaults.duration,
   min: 5,
   max: 60,
   step: 5
@@ -25,9 +25,6 @@ class OptionsStorage extends AddonBase {
     this._userAgentElem.textContent = navigator.userAgent;
   }
 
-  get _browser () { return globalThis.browser || globalThis.chrome; }
-  get _storage () { return this._browser.storage.local; }
-
   get _blockListElem () { return this._blockListForm.elements.list; }
   get _durationElem () { return this._durationForm.elements.duration; }
 
@@ -39,12 +36,10 @@ class OptionsStorage extends AddonBase {
   }
 
   async fromStorage () {
-    console.assert(this._storage);
-
-    const { blockList, duration } = await this._storage.get();
+    const { blockList, duration } = await super._fromStorage();
 
     this._blockListElem.value = (blockList || []).join('\n');
-    this._durationElem.value = parseInt(duration || DURATION.default);
+    this._durationElem.value = parseInt(duration);
 
     console.debug('OptionsStorage ~ duration, blockList:', duration, blockList);
   }
@@ -57,17 +52,16 @@ class OptionsStorage extends AddonBase {
 
     listElem.value += url + '\n';
 
-    const { blockList } = await this._storage.get('blockList');
+    const { blockList } = await super._fromStorage();
 
     console.debug('OS ~ submit:', url, blockList, listElem, ev);
 
     if (blockList && this._isArray(blockList)) {
       blockList.push(url);
 
-      await this._storage.set({ blockList }); // , () => console.debug('storage ~ set:', blockList));
-      // _storage.set(blockList).then(() => console.debug('storage ~ set OK:', blockList));
+      await super._store({ blockList }); // , () => console.debug('storage ~ set:', blockList));
     } else {
-      await this._storage.set({ blockList: [url] });
+      await super._store({ blockList: [url] });
     }
 
     await this.fromStorage();
@@ -76,10 +70,11 @@ class OptionsStorage extends AddonBase {
   async _blockListResetHandler (ev) {
     ev.preventDefault();
 
-    const { blockList } = await this._storage.get('blockList');
+    const { blockList } = await super._fromStorage();
 
     // Re-create pre-install state?
-    await this._storage.set({ blockList: null });
+    await super._store({ blockList: null });
+
     await this.fromStorage();
 
     console.debug('OS ~ reset:', blockList, ev.target.elements, ev);
@@ -90,7 +85,7 @@ class OptionsStorage extends AddonBase {
     console.assert(duration >= DURATION.min);
     console.assert(duration <= DURATION.max);
 
-    await this._storage.set({ duration });
+    await super._store({ duration });
 
     console.debug('OS ~ duration change:', duration, ev);
   }
