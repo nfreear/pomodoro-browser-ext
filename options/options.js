@@ -17,10 +17,12 @@ class OptionsStorage extends AddonBase {
   attachDOM () {
     this._blockListForm = document.querySelector('#blockListForm');
     this._durationForm = document.querySelector('#durationForm');
+    this._resetStorageForm = document.querySelector('#resetStorageForm');
     this._userAgentElem = document.querySelector('#userAgent');
 
     console.assert(this._blockListForm);
     console.assert(this._durationForm);
+    console.assert(this._resetStorageForm);
     console.assert(this._userAgentElem);
     this._userAgentElem.textContent = navigator.userAgent;
   }
@@ -33,6 +35,8 @@ class OptionsStorage extends AddonBase {
     this._blockListForm.addEventListener('reset', (ev) => this._blockListResetHandler(ev));
 
     this._durationElem.addEventListener('change', (ev) => this._durationChangeHandler(ev));
+
+    this._resetStorageForm.addEventListener('reset', (ev) => this._resetStorageHandler(ev));
   }
 
   async fromStorage () {
@@ -88,6 +92,18 @@ class OptionsStorage extends AddonBase {
     await super._store({ duration });
 
     console.debug('OS ~ duration change:', duration, ev);
+  }
+
+  async _resetStorageHandler (ev) {
+    ev.preventDefault();
+
+    const RESET = confirm('Are you sure you want to reset storage?');
+    if (RESET) {
+      await super._store(super._defaults);
+      await this.fromStorage();
+    }
+
+    console.debug('OS ~ reset storage:', RESET, ev);
   }
 
   _isArray (somevar) {
