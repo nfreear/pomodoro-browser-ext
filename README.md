@@ -7,7 +7,7 @@ Grow trees! A [Pomodoro][] countdown timer that blocks access to distracting web
 
 Work-in-progress downloads:
 
-* [extension.chromium.zip][] — _for Chrome & Chromium-based browsers_
+* [extension.chromium.zip][] — _for Chrome, Edge & Chromium-based browsers_
 * [extension.gecko.zip][] — _for Firefox_
 
 ## Browser support

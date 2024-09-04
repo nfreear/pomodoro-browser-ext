@@ -5,7 +5,10 @@
   "scripts": {
     "build:chromium": "UA=chromium node build/manifest.js",
     "build:gecko": "UA=gecko node build/manifest.js",
-    "zip": "zip -r extension.zip manifest.json assets lib options pages",
+    "pack:chromium": "npm run build:chromium && npm run zip:chromium",
+    "pack:gecko": "npm run build:gecko && npm run zip:gecko",
+    "zip:chromium": "zip -r extension.chromium.zip manifest.json assets lib options pages",
+    "zip:gecko": "zip -r extension.gecko.zip manifest.json assets lib options pages",
     "fix": "semistandard --fix",
     "test": "semistandard"
   },
