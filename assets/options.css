@@ -68,5 +68,19 @@ input[ type = url ] {
 
 time[ dt ] {
   display: inline-block;
-  min-width: 10.8rem;
+  min-width: 10.6rem;
+}
+
+@media screen {
+  comma {
+    display: none;
+  }
+
+  time[ dt ]:after {
+    content: ' – ';
+  }
+
+  time[ dur ]:after {
+    content: ',';
+  }
 }
