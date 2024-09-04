@@ -1,17 +1,30 @@
+/*!
+  Styles for options and log pages.
+*/
 
 body {
-  background: #f7fff7;
-  color: #006060; /* teal, #008080 */
   font: 1rem/1.6 sans-serif;
   margin: auto;
   min-height: 22rem;
-  max-width: 32rem;
+  max-width: 34rem;
   padding: 0 1rem;
 }
 
+@media screen {
+  body {
+    background: #f7fff7;
+    color: #006060; /* teal, #008080 */
+  }
+}
+
+main {
+  min-height: 64vh;
+}
+
 footer {
+  border-top: 1px solid silver;
   font-size: 90%;
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
 }
 
 #userAgent {
@@ -27,7 +40,7 @@ output {
   border: 1px solid #aaa;
   border-radius: .2rem;
   display: block;
-  min-height: 2rem;
+  min-height: 1.6rem;
   white-space: pre;
 }
 
@@ -82,5 +95,16 @@ time[ dt ] {
 
   time[ dur ]:after {
     content: ',';
+  }
+}
+
+@media print {
+  footer,
+  .no-print {
+    display: none;
+  }
+
+  .only-print {
+    display: block;
   }
 }
