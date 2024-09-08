@@ -59,3 +59,17 @@ img[ src *= evergreen_tree ] {
   font-size: 5rem;
   font-variation-settings: 'FILL' 1;
 }
+
+.emoji {
+  font-family: "Noto Color Emoji", emoji;
+  font-size: 5rem;
+}
+
+.emoji-svg svg {
+  height: 8rem;
+  width: 8rem;
+}
+
+.error {
+  color: darkred;
+}

@@ -14,6 +14,7 @@ const IS_GECKO = process.env.UA === 'gecko';
 
 const FILE_PATH = resolve(__dirname, '..', 'manifest.json');
 const SERVICE_WORKER = 'lib/service-worker.js';
+// const BACKGROUND_PAGE = 'pages/background.html';
 
 const TEMPLATE = {
   manifest_version: 3,
@@ -41,6 +42,8 @@ const TEMPLATE = {
     'http://*/*'
   ],
 
+  // content_security_policy: "script-src 'self'; font-src 'self' https://fonts.gstatic.com/; upgrade-insecure-requests;",
+
   background: {
     // scripts: ['lib/service-worker.js'],
     // service_worker: 'lib/service-worker.js'
@@ -64,7 +67,10 @@ const TEMPLATE = {
       matches: ['https://*/*'],
       resources: [
         'assets/content-style.css',
-        'assets/evergreen_tree.svg'
+        // 'assets/evergreen_tree.svg',
+        // 'assets/emoji.svg',
+        'lib/emoji-svg.js',
+        'lib/Icons.js'
       ]
     }
   ]
@@ -82,10 +88,12 @@ const GECKO = {
 const MANIFEST = IS_GECKO ? { ...TEMPLATE, ...GECKO } : TEMPLATE;
 
 if (IS_GECKO) {
+  // MANIFEST.background.page = BACKGROUND_PAGE;
   MANIFEST.background.scripts = [SERVICE_WORKER];
 } else {
   // Chromium-specific.
   MANIFEST.background.service_worker = SERVICE_WORKER;
+  MANIFEST.background.type = 'module';
 
   MANIFEST.permissions.push('offscreen');
 }
