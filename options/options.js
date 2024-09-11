@@ -5,6 +5,7 @@
 */
 
 import { AddonBase, DEFAULTS } from '../lib/AddonBase.js';
+import Icons from '../lib/Icons.js';
 
 const DURATION = {
   default: DEFAULTS.duration, // new AddonBase()._defaults.duration,
@@ -17,33 +18,46 @@ class OptionsStorage extends AddonBase {
   attachDOM () {
     this._blockListForm = document.querySelector('#blockListForm');
     this._durationForm = document.querySelector('#durationForm');
+    this._emojiForm = document.querySelector('#emojiForm');
     this._resetStorageForm = document.querySelector('#resetStorageForm');
     this._userAgentElem = document.querySelector('#userAgent');
 
     console.assert(this._blockListForm);
     console.assert(this._durationForm);
+    console.assert(this._emojiForm);
     console.assert(this._resetStorageForm);
     console.assert(this._userAgentElem);
     this._userAgentElem.textContent = navigator.userAgent;
+
+    this._initializeEmojiForm();
+  }
+
+  _initializeEmojiForm () {
+    const icons = new Icons();
+    const optionsTemplate = `<template>${icons.getSelectOptions()}</template>`;
+    this._attachTemplate(this._emojiSelectElem, optionsTemplate, false);
   }
 
   get _blockListElem () { return this._blockListForm.elements.list; }
   get _durationElem () { return this._durationForm.elements.duration; }
+  get _emojiSelectElem () { return this._emojiForm.elements.emoji; }
 
   handleUserEvents () {
     this._blockListForm.addEventListener('submit', (ev) => this._blockListSubmitHandler(ev));
     this._blockListForm.addEventListener('reset', (ev) => this._blockListResetHandler(ev));
 
     this._durationElem.addEventListener('change', (ev) => this._durationChangeHandler(ev));
+    this._emojiSelectElem.addEventListener('change', (ev) => this._emojiChangeHandler(ev));
 
     this._resetStorageForm.addEventListener('reset', (ev) => this._resetStorageHandler(ev));
   }
 
   async fromStorage () {
-    const { blockList, duration } = await super._fromStorage();
+    const { blockList, duration, emojiId } = await super._fromStorage();
 
     this._blockListElem.value = (blockList || []).join('\n');
     this._durationElem.value = parseInt(duration);
+    this._emojiSelectElem.value = emojiId;
 
     console.debug('OptionsStorage ~ duration, blockList:', duration, blockList);
   }
@@ -94,6 +108,16 @@ class OptionsStorage extends AddonBase {
     console.debug('OS ~ duration change:', duration, ev);
   }
 
+  async _emojiChangeHandler (ev) {
+    const icons = new Icons();
+    const emojiId = ev.target.value;
+    const { emoji } = icons.find(emojiId);
+
+    await super._store({ emoji, emojiId });
+
+    console.debug('OS ~ emoji change:', emoji, ev);
+  }
+
   async _resetStorageHandler (ev) {
     ev.preventDefault();
 
@@ -117,4 +141,4 @@ optionsStorage.attachDOM();
 optionsStorage.handleUserEvents();
 optionsStorage.fromStorage();
 
-console.debug('>> options.js');
+console.debug('>> options.js', optionsStorage);
