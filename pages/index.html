@@ -4,15 +4,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1" rel="stylesheet"> -->
-<!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji" rel="stylesheet"> -->
 
-<link rel="stylesheet" href="../assets/index.css">
+<link rel="stylesheet" href="/assets/variables.css">
+<link rel="stylesheet" href="/assets/index.css">
 
 <title> Popup – My Pomodoro</title>
 
 <div>
 
-<h1> My Pomodoro </h1>
+  <header>
+    <svg class="svg-logo" aria-hidden="true">
+      <use href="/assets/app-icons.svg#timer"/>
+    </svg>
+    <h1> My Pomodoro </h1>
+  </header>
+
 <!-- <h1> Grow a tree! </h1> -->
 
 <form id="popupTimerForm">
@@ -46,7 +52,11 @@
 <footer>
   <nav>
     <p>
-      <a href="/options/options.html" target="my_pom_ext">Options</a>
+      <a href="/options/options.html" target="my_pom_ext"
+      >
+      <svg class="svg-app-icon" aria-hidden="true">
+        <use href="/assets/app-icons.svg#gear"/>
+      </svg>Options</a>
     </p>
   </nav>
 </footer>

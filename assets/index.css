@@ -25,9 +25,9 @@ footer {
 }
 
 body > div {
-  background: #f8fcf8;
+  background: var(--my-pom-background-color);
   border-radius: .8rem;
-  color: teal;
+  color: var(--my-pom-text-color);
   padding: .6rem;
 }
 
@@ -72,4 +72,24 @@ img[ src *= evergreen_tree ] {
 
 .error {
   color: darkred;
+}
+
+.svg-app-icon {
+  height: var(--my-pom-icon-size);
+  width: var(--my-pom-icon-size);
+  margin-right: .1rem;
+  vertical-align: middle;
+}
+
+.svg-logo {
+  float: right;
+  margin-right: 3rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.svg-app-icon,
+.svg-logo {
+  fill: var(--my-pom-icon-color, teal);  /* currentColor; */
+  stroke: var(--my-pom-icon-color, teal);
 }

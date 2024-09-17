@@ -3,16 +3,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/variables.css">
   <link rel="stylesheet" href="/assets/options.css">
 
   <title> Log – My Pomodoro </title>
 
-  <h1> Log – My Pomodoro </h1>
+  <header>
+    <svg class="svg-logo" aria-hidden="true">
+      <use href="/assets/app-icons.svg#timer"/>
+    </svg>
+    <h1> Log – My Pomodoro </h1>
+  </header>
 
   <main>
 
   <p class="no-print">
-    <button id="printButton">Print</button>
+    <button id="printButton"
+      ><svg class="svg-app-icon" aria-hidden="true">
+        <use href="/assets/app-icons.svg#printer"/>
+      </svg>Print
+    </button>
   </p>
 
   <ul id="log"></ul>
@@ -22,7 +34,11 @@
   <footer>
     <nav>
       <p>
-        <a href="/options/options.html" target="my_pom_ext">Options</a>
+        <a href="/options/options.html" target="my_pom_ext">
+          <svg class="svg-app-icon" aria-hidden="true">
+            <use href="/assets/app-icons.svg#gear"/>
+          </svg>Options
+        </a>
       </p>
     </nav>
   </footer>

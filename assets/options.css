@@ -3,18 +3,26 @@
 */
 
 body {
+  background: var(--my-pom-background-color);
+  color: var(--my-pom-text-color);
   font: 1rem/1.6 sans-serif;
   margin: auto;
   min-height: 22rem;
-  max-width: 34rem;
-  padding: 0 1rem;
 }
 
 @media screen {
   body {
-    background: #f7fff7;
-    color: #006060; /* teal, #008080 */
+    margin: auto;
+    max-width: 37rem;
+    padding: 0 1rem;
   }
+}
+
+:focus-visible {
+  outline-offset: .2rem;
+  outline-width: thick;
+  /* outline-color: red; */
+  transition: all 300ms;
 }
 
 main {
@@ -35,6 +43,11 @@ h1 { font-size: 185%; }
 
 h1, h2 { font-weight: normal; }
 
+form {
+  margin-bottom: 2.2rem;
+  X-border-bottom: 1px solid silver;
+}
+
 output {
   background-color: #fcfcfc;
   border: 1px solid #aaa;
@@ -50,7 +63,8 @@ button {
 }
 
 input,
-output {
+output,
+select {
   font-size: inherit;
   padding: .5rem .75rem;
 }
@@ -73,6 +87,14 @@ input[ type = url ] {
   input[ type = url ] {
     width: 92%;
   }
+}
+
+#log x-emj,
+select[ name = emoji ] {
+  color: #111;
+  font-family: "Noto Color Emoji", emoji, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 #log {
@@ -107,4 +129,45 @@ time[ dt ] {
   .only-print {
     display: block;
   }
+}
+
+.svg-app-icon {
+  height: var(--my-pom-icon-size);
+  width: var(--my-pom-icon-size);
+  margin-right: .1rem;
+  vertical-align: middle;
+}
+
+.svg-app-icon.end {
+  margin-left: .1rem;
+  margin-right: 0;
+}
+
+.svg-logo {
+  float: right;
+  margin-right: 3rem;
+  height: 7rem;
+  width: 7rem;
+}
+
+.svg-app-icon,
+.svg-logo {
+  fill: var(--my-pom-icon-color, teal);  /* currentColor; */
+  stroke: var(--my-pom-icon-color, teal);
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 175%;
+  }
+
+  .svg-logo {
+    margin-right: 0;
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+#printButton .svg-app-icon {
+  margin-right: .3rem;
 }

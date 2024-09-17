@@ -5,11 +5,17 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji" rel="stylesheet">
 
+  <link rel="stylesheet" href="/assets/variables.css">
   <link rel="stylesheet" href="/assets/options.css">
 
   <title> Options &ndash; My Pomodoro </title>
 
-  <h1> Options &ndash; My Pomodoro </h1>
+  <header>
+    <svg class="svg-logo" aria-hidden="true">
+      <use href="/assets/app-icons.svg#timer"/>
+    </svg>
+    <h1> Options &ndash; My Pomodoro </h1>
+  </header>
 
   <main>
   <h2> Duration </h2>
@@ -49,11 +55,20 @@
   <footer>
   <nav>
     <p>
-      <a href="../pages/log.html" target="my_pom_ext">Log</a>
+      <a href="../pages/log.html" target="my_pom_ext"
+        >Log<svg aria-hidden="true" class="svg-app-icon end">
+          <use href="/assets/app-icons.svg#page_with_curl"/>
+        </svg></a>
       |
-      <a href="https://github.com/nfreear/pomodoro-chrome-ext/#readme" target="gh">About</a>
+      <a href="https://github.com/nfreear/pomodoro-chrome-ext/#readme" target="gh"
+        >About<svg aria-label="on GitHub, opens in new tab" class="svg-app-icon end">
+          <use href="/assets/app-icons.svg#github"/>
+        </svg></a>
       |
-      <a href="https://github.com/nfreear/pomodoro-chrome-ext/#privacy" target="gh">Privacy</a>
+      <a href="https://github.com/nfreear/pomodoro-chrome-ext/#privacy" target="gh"
+        >Privacy<svg aria-label=", opens in new tab" class="svg-app-icon end">
+          <use href="/assets/app-icons.svg#policy"/>
+        </svg></a>
     </p>
   </nav>
   <details>

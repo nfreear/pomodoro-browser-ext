@@ -1,0 +1,15 @@
+
+:root {
+  --my-pom-text-color: #006060; /* teal, #008080 */
+  --my-pom-icon-color: #407070;
+  --my-pom-background-color: #f8fff8;
+  --my-pom-icon-size: 1.4rem;
+}
+
+@media print {
+  :root {
+    --my-pom-text-color: black;
+    --my-pom-icon-color: gray;
+    --my-pom-background-color: white;
+  }
+}
