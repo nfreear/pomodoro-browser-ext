@@ -3,7 +3,7 @@
 
 # My Pomodoro Browser Extension
 
-Grow trees! A [Pomodoro][] countdown timer that blocks access to distracting websites. The block-list and timer duration are user configurable.
+Grow trees! A [Pomodoro][] countdown timer that helps you focus by blocking access to distracting websites. The block-list and timer duration are user configurable.
 
 Work-in-progress downloads:
 
@@ -27,7 +27,7 @@ The extension uses semantic HTML markup, for example, `<button>` and all input f
 [extension.gecko.zip]: https://nightly.link/nfreear/pomodoro-chrome-ext/workflows/node.js/main/extension.gecko.zip
 [xbrowser]: https://github.com/nfreear/pomodoro-chrome-ext/issues/1
   "Cross-browser support (Firefox), #1"
-[privacy policy]: https://github.com/nfreear/pomodoro-chrome-ext/issues/6
+[privacy policy]: /docs/PRIVACY.md
 [accessible]: https://www.w3.org/WAI/fundamentals/accessibility-intro/
 [a11y-wp]: https://en.wikipedia.org/wiki/Accessibility
 

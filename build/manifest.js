@@ -22,7 +22,7 @@ const TEMPLATE = {
   name: 'My Pomodoro',
   version: '1.0',
 
-  description: 'Grow trees! A Pomodoro countdown timer that blocks access to distracting websites.',
+  description: 'A Pomodoro countdown timer that helps you focus by blocking access to distracting websites.',
   homepage_url: 'https://github.com/nfreear/pomodoro-chrome-ext#readme',
 
   icons: {
