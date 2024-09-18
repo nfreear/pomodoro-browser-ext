@@ -1,0 +1,48 @@
+/*!
+  Styles specific to the log page.
+*/
+
+table {
+  border-collapse: collapse;
+  line-height: 1.1;
+  /* table-layout: fixed; */
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid silver;
+}
+
+@media print {
+  table,
+  td,
+  th {
+    border-color: gray;
+  }
+}
+
+td,
+th {
+  padding: .4rem .6rem;
+}
+
+tr td:nth-child(2),
+tr td:nth-child(4) {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  th {
+    font-size: x-small;
+  }
+
+  tr td:nth-child(1) {
+    font-size: small;
+  }
+
+  td,
+  th {
+    padding: .3rem;
+  }
+}
