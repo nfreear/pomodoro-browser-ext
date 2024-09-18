@@ -1,9 +1,11 @@
 
 :root {
-  --my-pom-text-color: #006060; /* teal, #008080 */
-  --my-pom-icon-color: #407070;
+  --my-pom-text-color: #206060; /* teal, #008080 */
+  --my-pom-icon-color: #406060;
   --my-pom-background-color: #f8fff8;
-  --my-pom-icon-size: 1.4rem;
+  --my-pom-icon-size: 1.5rem;
+  --my-pom-logo-size: 7rem;
+  --my-pom-zoom: 1.0;
 }
 
 @media print {
@@ -11,5 +13,31 @@
     --my-pom-text-color: black;
     --my-pom-icon-color: gray;
     --my-pom-background-color: white;
+    --my-pom-logo-size: 5rem;
   }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --my-pom-logo-size: 4rem;
+    --my-pom-zoom: 0.9;
+  }
+}
+
+:focus-visible {
+  outline-offset: .2rem;
+  outline-width: thick;
+  /* transition: all 250ms; */
+}
+
+*,
+:link {
+  text-underline-offset: .1rem;
+}
+
+:focus,
+:hover {
+  text-decoration-thickness: 3px;
+  /* text-underline-offset: .15rem;
+  transition: all 250ms; */
 }

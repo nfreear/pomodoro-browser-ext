@@ -8,6 +8,7 @@ body {
   font: 1rem/1.6 sans-serif;
   margin: auto;
   min-height: 22rem;
+  zoom: var(--my-pom-zoom);
 }
 
 @media screen {
@@ -16,13 +17,6 @@ body {
     max-width: 37rem;
     padding: 0 1rem;
   }
-}
-
-:focus-visible {
-  outline-offset: .2rem;
-  outline-width: thick;
-  /* outline-color: red; */
-  transition: all 300ms;
 }
 
 main {
@@ -40,6 +34,8 @@ footer {
 }
 
 h1 { font-size: 185%; }
+
+h2 { font-size: 140%; }
 
 h1, h2 { font-weight: normal; }
 
@@ -90,6 +86,7 @@ input[ type = url ] {
 }
 
 #log x-emj,
+table x-emj,
 select[ name = emoji ] {
   color: #111;
   font-family: "Noto Color Emoji", emoji, sans-serif;
@@ -146,8 +143,8 @@ time[ dt ] {
 .svg-logo {
   float: right;
   margin-right: 3rem;
-  height: 7rem;
-  width: 7rem;
+  height: var(--my-pom-logo-size);
+  width: var(--my-pom-logo-size);
 }
 
 .svg-app-icon,
@@ -158,13 +155,16 @@ time[ dt ] {
 
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 175%;
+    font-size: 155%;
+    line-height: 1.35;
+  }
+
+  h2 {
+    font-size: 135%;
   }
 
   .svg-logo {
     margin-right: 0;
-    height: 4rem;
-    width: 4rem;
   }
 }
 
