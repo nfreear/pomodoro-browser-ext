@@ -2,6 +2,11 @@
   Styles specific to the log page.
 */
 
+.no-log {
+  padding: 3rem 0;
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   line-height: 1.1;
@@ -44,5 +49,46 @@ tr td:nth-child(4) {
   td,
   th {
     padding: .3rem;
+  }
+}
+
+/* Stripes.
+*/
+tbody tr:nth-child(odd) {
+  background-color: #ddd;
+}
+
+/* Scrolling table (tbody).
+*/
+@media screen {
+  .experimental thead,
+  .experimental tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .experimental tbody {
+    border-bottom: 1px solid silver;
+    max-height: 75vh;
+    overflow-y: scroll;
+  }
+
+  .experimental th:nth-child(1),
+  .experimental th:nth-child(3),
+  .experimental td:nth-child(1),
+  .experimental td:nth-child(3) {
+    width: calc(0.38 * 100%);
+  }
+
+  .experimental th:nth-child(2),
+  .experimental th:nth-child(4),
+  .experimental td:nth-child(2),
+  .experimental td:nth-child(4) {
+    width: calc(0.16 * 100%);
+  }
+
+  .experimental td:nth-child(4) {
+    /* width: calc(calc(0.16 * 100%) + 30px); */
+    padding: .2rem 1rem;
   }
 }
