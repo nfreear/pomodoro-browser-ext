@@ -85,7 +85,6 @@ input[ type = url ] {
   }
 }
 
-#log x-emj,
 table x-emj,
 select[ name = emoji ] {
   color: #111;
@@ -100,29 +99,6 @@ select[ name = emoji ] {
   table x-emj,
   select[ name = emoji ] {
     font-family: emoji, sans-serif;
-  }
-}
-
-#log {
-  line-height: 2;
-}
-
-time[ dt ] {
-  display: inline-block;
-  min-width: 10.6rem;
-}
-
-@media screen {
-  comma {
-    display: none;
-  }
-
-  time[ dt ]:after {
-    content: ' – ';
-  }
-
-  time[ dur ]:after {
-    content: ',';
   }
 }
 

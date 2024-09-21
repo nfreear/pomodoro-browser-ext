@@ -2,10 +2,6 @@
   Content-script styles.
 */
 
-body {
-  X-border: 3px solid red;
-}
-
 dialog {
   X-background: #f8fff8;
   background: rgba(250, 255, 250, .9);
@@ -27,8 +23,7 @@ dialog {
   }
 }
 
-dialog::backdrop /* ,
-my-pomodoro-timer::part(dialog)::backdrop */ {
+dialog::backdrop {
   background: rgba(25, 25, 20, .85);
   X-opacity: .1rem;
 }
