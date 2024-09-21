@@ -94,6 +94,15 @@ select[ name = emoji ] {
   font-weight: 300;
 }
 
+/* Temp fix for emoji print bug (#21)
+*/
+@media print {
+  table x-emj,
+  select[ name = emoji ] {
+    font-family: emoji, sans-serif;
+  }
+}
+
 #log {
   line-height: 2;
 }
