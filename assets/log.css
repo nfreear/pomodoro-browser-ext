@@ -55,7 +55,7 @@ tr td:nth-child(4) {
 /* Stripes.
 */
 tbody tr:nth-child(odd) {
-  background-color: #ddd;
+  background-color: var(--my-pom-stripe-color);
 }
 
 /* Scrolling table (tbody).

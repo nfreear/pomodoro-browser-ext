@@ -2,7 +2,7 @@
   Popup styles.
 */
 
-body {
+.popup-page body {
   background: gray;
   border-radius: 1rem;
   font: 1rem/1.6 sans-serif;
@@ -13,7 +13,7 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  body.not-gecko {
+  .popup-page body.not-gecko {
     min-width: 96vw;
     max-width: 26rem;
   }
@@ -24,16 +24,11 @@ footer {
   margin-top: 1.6rem;
 }
 
-body > div {
+.popup-page body > div {
   background: var(--my-pom-background-color);
   border-radius: .8rem;
   color: var(--my-pom-text-color);
   padding: .6rem;
-}
-
-h1 {
-  font-weight: normal;
-  line-height: 1.3;
 }
 
 output {
@@ -73,24 +68,4 @@ img[ src *= evergreen_tree ] {
 
 .error {
   color: darkred;
-}
-
-.svg-app-icon {
-  height: var(--my-pom-icon-size);
-  width: var(--my-pom-icon-size);
-  margin-right: .1rem;
-  vertical-align: middle;
-}
-
-.svg-logo {
-  float: right;
-  margin-right: 3rem;
-  height: 3rem;
-  width: 3rem;
-}
-
-.svg-app-icon,
-.svg-logo {
-  fill: var(--my-pom-icon-color, teal);  /* currentColor; */
-  stroke: var(--my-pom-icon-color, teal);
 }

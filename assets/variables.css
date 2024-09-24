@@ -1,8 +1,12 @@
 
 :root {
-  --my-pom-text-color: #206060; /* teal, #008080 */
+  --my-pom-text-color: #306060; /* teal, #008080 */
   --my-pom-icon-color: #406060;
-  --my-pom-background-color: #f8fff8;
+  --my-pom-background-color: #f9fff9;
+  --my-pom-button-bg-color: #ecefec; /* buttonFace, #EFEFEF */
+  --my-pom-button-hover-color: #dfe6df;
+  --my-pom-button-text-color: #204040;
+  --my-pom-stripe-color: #dfe6df;
   --my-pom-icon-size: 1.5rem;
   --my-pom-logo-size: 7rem;
   --my-pom-zoom: 1.0;
@@ -22,6 +26,10 @@
     --my-pom-logo-size: 4rem;
     --my-pom-zoom: 0.9;
   }
+}
+
+.popup-page {
+  --my-pom-logo-size: 3rem;
 }
 
 :focus-visible {

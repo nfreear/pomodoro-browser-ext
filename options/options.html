@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="full-page">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,11 +18,11 @@
   </header>
 
   <main>
-  <h2> Duration </h2>
+  <h2> Choose the timer duration </h2>
 
   <form id="durationForm">
     <p>
-      <label>Timer duration <input name="duration" type="number" value="10" min="5" step="5" max="45"> minutes</label>
+      <label>Duration <input name="duration" type="number" value="10" min="5" step="5" max="45"> minutes</label>
     </p>
   </form>
 
@@ -34,7 +34,8 @@
     </p>
   </form>
 
-  <h2> Block list </h2>
+  <h2> Block websites </h2>
+  <p> Block some sites that may distract you! </p>
 
   <form id="blockListForm">
     <p id="addUrl">
@@ -80,6 +81,8 @@
         <button type="reset">Reset</button>
       </form>
     </p>
+
+    <p><a href="../pages/dev.html">Developer tools</a></p>
   </details>
   </footer>
 
