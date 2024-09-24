@@ -21,7 +21,9 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+/* X-Small breakpoint (Bootstrap 5.0)
+*/
+@media screen and (max-width: 576px) {
   :root {
     --my-pom-logo-size: 4rem;
     --my-pom-zoom: 0.9;

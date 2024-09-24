@@ -12,7 +12,9 @@
   text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+/* X-Small breakpoint.
+*/
+@media screen and (max-width: 576px) {
   .popup-page body.not-gecko {
     min-width: 96vw;
     max-width: 26rem;

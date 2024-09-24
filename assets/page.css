@@ -77,7 +77,9 @@ input[ type = url ] {
   width: 16rem;
 }
 
-@media screen and (max-width: 600px) {
+/* X-Small breakpoint.
+*/
+@media screen and (max-width: 576px) {
   .full-page input[ type = url ],
   .full-page button {
     display: block;
@@ -146,7 +148,9 @@ select[ name = emoji ] {
   stroke: var(--my-pom-icon-color, teal);
 }
 
-@media screen and (max-width: 600px) {
+/* X-Small breakpoint.
+*/
+@media screen and (max-width: 576px) {
   h1 {
     font-size: 155%;
     line-height: 1.35;

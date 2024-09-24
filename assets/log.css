@@ -37,7 +37,9 @@ tr td:nth-child(4) {
   text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+/* X-Small breakpoint.
+*/
+@media screen and (max-width: 576px) {
   th {
     font-size: x-small;
   }
