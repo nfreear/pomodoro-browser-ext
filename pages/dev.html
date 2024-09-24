@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" class="full-page">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/assets/variables.css">
+  <link rel="stylesheet" href="/assets/page.css">
+
+  <title> Developer Tools &ndash; My Pomodoro </title>
+
+  <header>
+    <svg class="svg-logo" aria-hidden="true">
+      <use href="/assets/app-icons.svg#timer"/>
+    </svg>
+    <h1> Developer Tools – My Pomodoro </h1>
+  </header>
+
+  <main>
+  <h2> Log entries </h2>
+
+  <form id="devLogForm">
+    <p>
+      <button type="submit">Add mock log data</button>
+    </p>
+    <p>
+      <label>Data
+        <output name="data"></output>
+      </label>
+    </p>
+    <p>
+      <button type="reset">Remove log entries</button>
+    </p>
+  </form>
+  </main>
+
+  <footer>
+  <nav>
+    <p>
+      <a href="/options/options.html" target="my_pom_ext">
+        <svg class="svg-app-icon" aria-hidden="true">
+          <use href="/assets/app-icons.svg#gear"/>
+        </svg>Options</a>
+      |
+      <a href="../pages/log.html" target="my_pom_ext"
+        >Log<svg aria-hidden="true" class="svg-app-icon end">
+          <use href="/assets/app-icons.svg#page_with_curl"/>
+        </svg></a>
+    </p>
+  </nav>
+  <details>
+    <summary>Debug</summary>
+    <p id="userAgent">-</p>
+
+    <form id="resetStorageForm">
+      <p>
+        <button type="reset">Reset</button>
+      </p>
+    </form>
+  </details>
+  </footer>
+
+  <script src="/lib/dev/developer.js" type="module"></script>
+
+</html>
