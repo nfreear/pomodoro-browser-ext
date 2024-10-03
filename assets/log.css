@@ -33,8 +33,14 @@ th {
 }
 
 tr td:nth-child(2),
-tr td:nth-child(4) {
+tr td:nth-child(5) {
   text-align: center;
+}
+
+tr th:nth-child(3),
+tr td:nth-child(3) {
+  font-size: small;
+  width: 3.5rem;
 }
 
 /* X-Small breakpoint.
