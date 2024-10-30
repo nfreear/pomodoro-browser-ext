@@ -8,7 +8,7 @@ The privacy policy for the '_My Pomodoro_' browser extension is really simple.
 
 ## What is the single purpose?
 
-My Pomodoro is a countdown timer that helps you focus, by blocking access to distracting websites. (The block-list and timer duration are user configurable.)
+My Pomodoro is a countdown timer that helps you focus, by blocking access to distracting websites. (The block-list and timer duration are configurable by you, the user.)
 
 ## What data does the extension store?
 
@@ -25,7 +25,7 @@ The browser extension does not generate, use or store:
 * Cookies,
 * Personal data,
 * Sensitive data,
-* Browsing data and preferences,
+* Your browsing data and preferences.
 
 ## Where is data stored?
 
@@ -37,7 +37,7 @@ The data is not stored within any other party.
 
 ## What permissions are required?
 
-The browser extension uses the following [permissions][]:
+The browser [extension][] uses the following [permissions][]:
 
 * "`activeTab`" — To check whether the current tab needs blocking, when it becomes active.
 * "`notifications`" — To display system notifications at the start and end of Pomodoros.
@@ -57,6 +57,8 @@ This privacy policy may be updated from time to time. Please check back regularl
 [priv bug]: https://github.com/nfreear/pomodoro-chrome-ext/issues/6
 [pomodoro]: https://en.wikipedia.org/wiki/Pomodoro_Technique
 [permissions]: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions#manifest
+[extension]: https://en.wikipedia.org/wiki/Browser_extension
+
 [tm perm]: https://www.tampermonkey.net/faq.php#Q304
 [tm priv]: https://www.tampermonkey.net/privacy.php#tampermonkey-extensions-and-apps
 

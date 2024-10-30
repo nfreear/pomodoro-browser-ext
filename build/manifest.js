@@ -1,7 +1,8 @@
 /**
- * Build a manifest file targetting Chromium/Webkit or Gecko-based browsers.
+ * Build a manifest file, targetting Chromium/Webkit or Gecko-based browsers.
  *
- * © NDF, 19-Aug-2024.
+ * @copyright © Nick Freear, 19-Aug-2024.
+ *
  * @see https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json
  */
 
@@ -14,16 +15,21 @@ const IS_GECKO = process.env.UA === 'gecko';
 
 const FILE_PATH = resolve(__dirname, '..', 'manifest.json');
 const SERVICE_WORKER = 'lib/service-worker.js';
+const AUTHOR_NAME = 'Nick Freear';
 // const BACKGROUND_PAGE = 'pages/background.html';
 
 const TEMPLATE = {
   manifest_version: 3,
 
-  name: 'My Pomodoro',
+  short_name: 'My Pomodoro',
+  name: 'My Pomodoro: work, relax, focus',
   version: '1.0',
 
   description: 'A Pomodoro countdown timer that helps you focus by blocking access to distracting websites.',
   homepage_url: 'https://github.com/nfreear/pomodoro-chrome-ext#readme',
+  author: {
+    email: 'n.d.freear@gmail.com'
+  },
 
   icons: {
     128: 'assets/icon-128.png'
@@ -66,6 +72,7 @@ const TEMPLATE = {
     {
       matches: ['https://*/*'],
       resources: [
+        'assets/app-icons.svg',
         'assets/content-style.css',
         // 'assets/evergreen_tree.svg',
         // 'assets/emoji.svg',
@@ -90,6 +97,8 @@ const MANIFEST = IS_GECKO ? { ...TEMPLATE, ...GECKO } : TEMPLATE;
 if (IS_GECKO) {
   // MANIFEST.background.page = BACKGROUND_PAGE;
   MANIFEST.background.scripts = [SERVICE_WORKER];
+
+  MANIFEST.author = AUTHOR_NAME;
 } else {
   // Chromium-specific.
   MANIFEST.background.service_worker = SERVICE_WORKER;
