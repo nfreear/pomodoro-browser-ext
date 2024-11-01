@@ -32,6 +32,7 @@ const TEMPLATE = {
   },
 
   icons: {
+    96: 'assets/icon-96.png',
     128: 'assets/icon-128.png'
   },
 
