@@ -1,7 +1,7 @@
 /**
  * Build the `lib/emoji-svg.js` JavaScript from SVG files in the `noto-emoji` Git repo.
  *
- * @copyright © Nick Freear, 07-Sep-2024.
+ * @copyright © Nick Freear and contributors, 07-Sep-2024.
  * @see https://github.com/googlefonts/noto-emoji
  */
 

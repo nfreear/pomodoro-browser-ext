@@ -1,7 +1,7 @@
 /**
  * Build a manifest file, targetting Chromium/Webkit or Gecko-based browsers.
  *
- * @copyright © Nick Freear, 19-Aug-2024.
+ * @copyright © Nick Freear and contributors, 19-Aug-2024.
  *
  * @see https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json
  */
@@ -26,7 +26,7 @@ const TEMPLATE = {
   version: '1.0',
 
   description: 'A Pomodoro countdown timer that helps you focus by blocking access to distracting websites.',
-  homepage_url: 'https://github.com/nfreear/pomodoro-chrome-ext#readme',
+  homepage_url: 'https://github.com/nfreear/pomodoro-browser-ext#readme',
   author: {
     email: 'n.d.freear@gmail.com'
   },
