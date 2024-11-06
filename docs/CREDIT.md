@@ -2,6 +2,8 @@
 
 # Credits
 
+Thank you to the following individuals and organizations ❤️
+
 ## Emojis and Icons
 
 ### Material Icons
@@ -52,4 +54,4 @@
 [cc0]: https://creativecommons.org/publicdomain/zero/1.0/deed.en
 [apache 2.0]: https://www.apache.org/licenses/LICENSE-2.0.html
 
-[← readme]: https://github.com/nfreear/pomodoro-chrome-ext#readme
+[← readme]: https://github.com/nfreear/pomodoro-browser-ext#readme

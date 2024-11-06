@@ -14,9 +14,9 @@ My Pomodoro is a countdown timer that helps you focus, by blocking access to dis
 
 The extension collects the following data:
 
-* Configuration options, including the choice of emoji, the length of the Pomodoro timer, and the list of websites to block.
-* A log of the start and end date and time for each Pomodoro timer.
-* A comment that you can optionally add to each Pomodoro timer.
+* Configuration options, including the choice of emoji, the length of the Pomodoro timer session, and the list of websites to block.
+* A log of the start and end date and time for each timer session.
+* A comment that you can optionally add to each timer session.
 * The "_reason_" that the timer ended (for example, that the timer reached zero, or that you clicked the "Stop" button!)
 
 The browser extension does not generate, use or store:
@@ -29,18 +29,18 @@ The browser extension does not generate, use or store:
 
 ## Where is data stored?
 
-All of this data is stored on your local device. It does not leave your computer, tablet or phone.
+Any data that is collected is stored on your local device. It does not leave your computer, tablet or phone.
 
 ## Who is the data shared with?
 
-The data is not stored within any other party.
+The data is not stored or shared with any other party.
 
 ## What permissions are required?
 
 The browser [extension][] uses the following [permissions][]:
 
 * "`activeTab`" — To check whether the current tab needs blocking, when it becomes active.
-* "`notifications`" — To display system notifications at the start and end of Pomodoros.
+* "`notifications`" — To display system notifications at the start and end of timer sessions.
 * "`offscreen`" — To play a bell sound at the start and end of Pomodoros (_only on Chromium and Chrome_).
 * "`scripting`" — To execute JavaScript to display a modal on blocked pages.
 * "`storage`" — To store the configuration and log data.
@@ -54,7 +54,7 @@ This privacy policy may be updated from time to time. Please check back regularl
 ---
 [← Readme][]
 
-[priv bug]: https://github.com/nfreear/pomodoro-chrome-ext/issues/6
+[priv bug]: https://github.com/nfreear/pomodoro-browser-ext/issues/6
 [pomodoro]: https://en.wikipedia.org/wiki/Pomodoro_Technique
 [permissions]: https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions#manifest
 [extension]: https://en.wikipedia.org/wiki/Browser_extension
@@ -66,4 +66,4 @@ This privacy policy may be updated from time to time. Please check back regularl
 [termly]: https://termly.io/products/privacy-policy-generator/
 [termly app]: https://app.termly.io/builder/documents/new?template_id=12
 
-[← readme]: https://github.com/nfreear/pomodoro-chrome-ext#readme
+[← readme]: https://github.com/nfreear/pomodoro-browser-ext#readme
