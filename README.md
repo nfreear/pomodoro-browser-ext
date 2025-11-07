@@ -1,12 +1,12 @@
 
-[![Chrome web store][chrome-badge]][chrome]
+[![Install on: Chrome web store][chrome-badge]][chrome]
 [![Node.js CI][ci-img]][ci]
 
 # My Pomodoro Browser Extension
 
-* [Chrome web store][chrome]
-
 A [Pomodoro][] countdown timer that helps you focus by blocking access to distracting websites.
+
+* Install on: [Chrome web store][chrome]
 
 ## Features
 
@@ -47,7 +47,7 @@ The extension uses semantic HTML markup, for example, `<button>` and all input f
 
 ---
 
-[![Chrome web store][chrome-svg]][chrome]
+[![Install on: Chrome web store][chrome-svg]][chrome]
 
 [pomodoro]: https://en.wikipedia.org/wiki/Pomodoro_Technique
 [extension.chromium.zip]: https://nightly.link/nfreear/pomodoro-browser-ext/workflows/node.js/main/extension.chromium.zip
@@ -64,6 +64,7 @@ The extension uses semantic HTML markup, for example, `<button>` and all input f
 [neuro]: https://en.wikipedia.org/wiki/Neurodiversity
 
 [chrome]: https://chromewebstore.google.com/detail/my-pomodoro-work-relax-fo/ciifljdpiobfiebfjlppcdakelfipiko
+  "Install on the Chrome Web Store"
 [chrome-badge]: https://img.shields.io/badge/Chrome-Web_Store-blue?logo=chromewebstore&logoColor=white
 [chrome-svg]: screenshots/badge/chrome-store-192px.svg
 [chrome-bw]: https://unpkg.com/simple-icons@13.16.0/icons/chromewebstore.svg

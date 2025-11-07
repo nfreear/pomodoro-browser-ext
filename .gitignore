@@ -2,11 +2,23 @@
 *.diff
 *BAK*
 *OLD*
+# *WIP*
 my-timer*
 WorkerTimer*
-# a11y*
-# mod-test.js
+a11y*
+mod-test.js
+icon.html
+background.html
+# Icons.js
+# emoji.svg
+
+# LICENSE*
+PRIVACY.2*
+privacy.html
+# test.html
+
+noto-emoji
 
 *.zip
 node_modules
-manifest*.json
+/manifest.json

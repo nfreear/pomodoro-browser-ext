@@ -8,6 +8,7 @@
 
 const fs = require('fs').promises;
 const { resolve } = require('path');
+const PKG = require('../package.json');
 
 console.log('Building manifest - targetting:', process.env.UA);
 
@@ -23,7 +24,7 @@ const TEMPLATE = {
 
   short_name: 'My Pomodoro',
   name: 'My Pomodoro: work, relax, focus',
-  version: '1.0',
+  version: PKG.version,
 
   description: 'A Pomodoro countdown timer that helps you focus by blocking access to distracting websites.',
   homepage_url: 'https://github.com/nfreear/pomodoro-browser-ext#readme',

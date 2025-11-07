@@ -54,15 +54,18 @@ form {
 }
 
 button {
-  background-color: var(--my-pom-button-bg-color);
-  border: 1px outset gray;
-  border-radius: .15rem;
-  color: var(--my-pom-button-text-color);
   font-size: inherit;
   padding: .5rem 1rem;
 }
 
-button:hover {
+button:not([disabled]) {
+  background-color: var(--my-pom-button-bg-color);
+  border-width: 1px;
+  border-radius: .15rem;
+  color: var(--my-pom-button-text-color);
+}
+
+button:not([disabled]):hover {
   background-color: var(--my-pom-button-hover-color);
 }
 
