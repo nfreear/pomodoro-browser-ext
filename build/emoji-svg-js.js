@@ -54,7 +54,7 @@ function svgFilePath (codepoint) {
 function jsFileTemplate (jsonSvgData) {
   return `/* Auto-generated. */
 
-/* eslint-disable quotes, quote-props */
+/* eslint-disable @stylistic/quotes, @stylistic/quote-props */
 
 export const SVG = ${jsonSvgData};
 

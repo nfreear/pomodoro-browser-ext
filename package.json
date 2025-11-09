@@ -12,14 +12,12 @@
     "pack:gecko": "npm run build:gecko && npm run zip:gecko",
     "zip:chromium": "zip -r extension.chromium.zip manifest.json assets lib options pages",
     "zip:gecko": "zip -r extension.gecko.zip manifest.json assets lib options pages",
-    "fix": "semistandard --fix",
-    "test": "semistandard"
+    "fix": "eslint --fix .",
+    "lint": "eslint .",
+    "test": "eslint ."
   },
   "devDependencies": {
-    "semistandard": "^17.0.0"
-  },
-  "semistandard": {
-    "env": [ "browser" ],
-    "globals": [ "X_chrome" ]
+    "eslint": "^9.39.1",
+    "neostandard": "^0.12.2"
   }
 }
